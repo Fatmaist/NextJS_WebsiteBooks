@@ -26,14 +26,10 @@ export async function getServerSideProps() {
       props: {
         books,
       },
-    };
+    }
   } catch (err) {
     console.log(err);
-    // Jika terjadi kesalahan, kembalikan pesan kesalahan sebagai props
-    return {
-      props: {
-        error: { message: "Something went wrong" }
-      }
-    };
+    return res.status(400).json({ message: "Something went wrong" });
   }
+  
 }
